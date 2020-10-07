@@ -1,2 +1,3 @@
 # info2180-lab3
-Tic - Tac - Toe Game
+
+This is Lab 3 for Marlon Williams.
