@@ -2,7 +2,7 @@
 
 var main = function(){
     var count = 0;
-    let boardState = ["","","","","","","","",""];
+    let boardState = ["a","b","c","d","e","f","g","h","i"];
     var cube  = document.querySelectorAll(".square");
     
     for (var number = 0; number < cube.length; number++){
@@ -21,6 +21,14 @@ var main = function(){
                 boardState[event.target.id] = "O"
             }
             count = count + 1; 
+            var test = checkwin(boardState);
+
+            if (test[0]){
+                var message = document.querySelector("#status");
+                message.textContent = "Congratuations! "+test[1]+ " is the Winner!";
+                message.classList.add("you-won");
+
+            }
         })
 
         cube[number].addEventListener("mouseover",function(event){
@@ -46,4 +54,51 @@ window.onload =  function() {
     }
     console.log("Finished Setup");
     main();
+}
+
+var checkwin = function(boardState){
+    if(boardState[0] == boardState[1] && boardState[1] == boardState[2]){
+        console.log(boardState[0] + " WON");
+        console.log("State 1");
+        return [true,boardState[0]];
+    }
+    else if(boardState[0] == boardState[3] && boardState[3] == boardState[6]){
+        console.log(boardState[0] + " WON");
+        console.log("State 2");
+        return [true,boardState[0]];
+    }
+    else if(boardState[1] == boardState[4] && boardState[4]== boardState[7]){
+        console.log(boardState[1] + " WON");
+        console.log("State 3");
+        return [true,boardState[1]];
+    }
+    else if(boardState[2] == boardState[5] && boardState[5]== boardState[8]){
+        console.log(boardState[2] + " WON");
+        console.log("State 4");
+        return [true,boardState[2]];
+    }
+    else if(boardState[3] == boardState[4] && boardState[4]== boardState[5]){
+        console.log(boardState[3] + " WON");
+        console.log("State 5");
+        return [true,boardState[3]];
+    }
+    else if(boardState[6] == boardState[7] && boardState[7]== boardState[8]){
+        console.log(boardState[6] + " WON");
+        console.log("State 6");
+        return [true,boardState[6]];
+    }
+    else if(boardState[0] == boardState[4] && boardState[4]== boardState[8]){
+        console.log(boardState[0] + " WON");
+        console.log("State 7");
+        return [true,boardState[0]];
+    }
+    else if(boardState[6] == boardState[4] && boardState[4]== boardState[2]){
+        console.log(boardState[6] + " WON");
+        console.log("State 8");
+        return [true,boardState[6]];
+    }
+    else{
+        console.log("Continue");
+        return [false];
+    }
 }
