@@ -21,7 +21,17 @@ var main = function(){
                 boardState[event.target.id] = "O"
             }
             count = count + 1; 
-        });
+        })
+
+        cube[number].addEventListener("mouseover",function(event){
+            event.preventDefault();
+            event.target.classList.add("hover");
+        })
+
+        cube[number].addEventListener("mouseout",function(event){
+            event.preventDefault();
+            event.target.classList.remove("hover");
+        })
 
 }
     console.log("Finished setting up Event Handlers");
