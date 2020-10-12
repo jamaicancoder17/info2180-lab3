@@ -60,6 +60,9 @@ var main = function(){
                 //Clearing the board onscreen
                 cube1[number].textContent = "";
             }
+            var message = document.querySelector("#status");
+            message.textContent = "Move your mouse over a square and click to play an X or an O.";
+            message.classList.remove("you-won");
         
             //Resetting the board state
             boardState = ["a","b","c","d","e","f","g","h","i"];
