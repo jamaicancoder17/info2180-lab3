@@ -24,7 +24,7 @@ var main = function(){
                     console.log("You have pressed 'O'");
                     event.target.classList.add("O");
                     event.target.textContent = "O";
-                    boardState[event.target.id] = "O"
+                    boardState[event.target.id] = "O";
                 }
                 count = count + 1; 
                 var test = checkwin(boardState);
@@ -36,7 +36,6 @@ var main = function(){
                     
                     for(var i = 0; i<9;i++){
                         console.log("here");
-                        cube[i].removeEventListener("click", name);
                     }
                 }
             }
@@ -59,15 +58,18 @@ var main = function(){
             for (var number = 0; number < cube1.length; number++){
                 //Clearing the board onscreen
                 cube1[number].textContent = "";
+                //cube1[number].classList.remove("X");
+                //cube1[number].classList.remove("O");
             }
             var message = document.querySelector("#status");
             message.textContent = "Move your mouse over a square and click to play an X or an O.";
             message.classList.remove("you-won");
         
             //Resetting the board state
-            boardState = ["a","b","c","d","e","f","g","h","i"];
-            count = 0;
-            console.log("Cleared it");
+            //boardState = ["a","b","c","d","e","f","g","h","i"];
+            //count = 0;
+            //console.log("Cleared it");
+            location.reload();
         });
 
 }
